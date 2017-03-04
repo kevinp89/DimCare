@@ -12,7 +12,7 @@ import {
   View
 } from 'react-native';
 
-export default class myProject extends Component {
+export default class app extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -50,4 +50,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('myProject', () => myProject);
+AppRegistry.registerComponent('app', () => app);
