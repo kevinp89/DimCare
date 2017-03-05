@@ -165,16 +165,60 @@ class LoginView extends Component{
 
 
 class RegisterView extends Component{
+
+  changeToPatientInfo(){
+
+  }
+
   render(){
     return (
-      <View style={{flex:1, backgroundColor:'#42bff4'}}>
-      <TouchableHighlight
-          label = "Submit"
-          style = {styles.submitButon}
+      <View style={{flex:1, backgroundColor:'#42bff4', justifyContent: 'center'}}>
+      <Container>
+        <Label text="Name" />
+        <View style={styles.textInput}>
+          <TextInput
+            style={styles.textInputSize}
+          />
+          </View>
+      </Container>
 
-          onPress={ () => this.changeRegisterView()} >
-          <Text style={styles.submitText}>
-          Submit
+      <Container>
+        <Label text="Email" />
+        <View style={styles.textInput}>
+          <TextInput
+            style={styles.textInputSize}
+            secureTextEntry={true}
+          />
+          </View>
+      </Container>
+
+      <Container>
+        <Label text="Password" />
+        <View style={styles.textInput}>
+          <TextInput
+            style={styles.textInputSize}
+            secureTextEntry={true}
+          />
+          </View>
+      </Container>
+
+      <Container>
+        <Label text="Phone Number" />
+        <View style={styles.textInput}>
+          <TextInput
+            style={styles.textInputSize}
+             keyboardType = 'numeric'
+          />
+          </View>
+      </Container>
+
+      <TouchableHighlight
+          label = "Next (Patient Info)"
+          style = {styles.nextButton}
+
+          onPress={ () => this.changeToPatientInfo()} >
+          <Text style={styles.nextText}>
+          Next (Patient Info)
           </Text>
 
       </TouchableHighlight>
@@ -211,14 +255,15 @@ const styles = StyleSheet.create({
   },
 
   textInput: {
-    height: 80,
+    height: 50,
     width: 210,
+
     backgroundColor: '#42bff4',
     borderBottomWidth: 1,
     borderBottomColor: '#070c28'
 },
   textInputSize: {
-    height: 80,
+    height: 50,
     width: 210,
     fontSize : 30
   },
@@ -248,6 +293,12 @@ submitText: {
      fontSize: 40
 },
 
+nextText: {
+  color:'#fff',
+     textAlign:'center',
+     fontSize: 20
+},
+
 RegisterButton : {
   marginRight:30,
   marginLeft:30,
@@ -264,6 +315,19 @@ submitButon: {
   marginRight:30,
   marginLeft:30,
   marginTop:10,
+  paddingTop:10,
+  paddingBottom:10,
+  backgroundColor:'#42d4f4',
+  borderRadius:10,
+  borderWidth: 1,
+  borderColor: '#42d4f4'
+},
+
+nextButton: {
+
+  marginRight:30,
+  marginLeft:30,
+  marginTop:80,
   paddingTop:10,
   paddingBottom:10,
   backgroundColor:'#42d4f4',
