@@ -153,7 +153,7 @@ class LoginView extends Component{
         <Container>
             <Button
                 label="CANCEL"
-                styles={{label: styles.buttonBlackText}}
+                styles={{button: styles.cancelButton, label: styles.buttonBlackText}}
                 onPress={ () => this.changetheView() }
                 //onPress={this.press.bind(this)}
                 />
@@ -370,7 +370,7 @@ class FamilyInfoView extends Component{
       </Container>
       </View>
 
-      <View style={{marginLeft:280, padding:5, backgroundColor: '#42d4f4', borderRadius: 10}}>
+      <View style={styles.finishButtonView}>
         <TouchableHighlight style={{flexDirection:'row'}}>
           <Text style={{fontSize: 24, color: '#fff'}}>
            Finish
@@ -460,7 +460,11 @@ signInButton: {
   backgroundColor:'#092663',
   borderRadius:10,
   borderWidth: 1,
-    borderColor: '#092663'
+  borderColor: '#092663',
+  shadowColor: '#3e4247',
+  shadowOffset: {width: 2, height: 2},
+  shadowOpacity: 2,
+  shadowRadius: 5
 },
 submitText: {
   color:'#fff',
@@ -485,7 +489,11 @@ RegisterButton : {
   backgroundColor:'#006caf',
   borderRadius:10,
   borderWidth: 1,
-    borderColor: '#006caf'
+  borderColor: '#006caf',
+  shadowColor: '#3e4247',
+  shadowOffset: {width: 2, height: 2},
+  shadowOpacity: 2,
+  shadowRadius: 5
 },
 submitButon: {
 
@@ -497,7 +505,23 @@ submitButon: {
   backgroundColor:'#42d4f4',
   borderRadius:10,
   borderWidth: 1,
-  borderColor: '#42d4f4'
+  borderColor: '#42d4f4',
+
+  shadowColor: '#3e4247',
+  shadowOffset: {width: 2, height: 2},
+  shadowOpacity: 2,
+  shadowRadius: 5,
+  borderRadius: 10
+},
+
+cancelButton: {
+
+  backgroundColor: '#c2cad3',
+  shadowColor: '#3e4247',
+  shadowOffset: {width: 2, height: 2},
+  shadowOpacity: 2,
+  shadowRadius: 5,
+  borderRadius: 10
 },
 
 nextButton: {
@@ -510,7 +534,13 @@ nextButton: {
   backgroundColor:'#42d4f4',
   borderRadius:10,
   borderWidth: 1,
-  borderColor: '#42d4f4'
+  borderColor: '#42d4f4',
+
+  shadowColor: '#3e4247',
+  shadowOffset: {width: 2, height: 2},
+  shadowOpacity: 2,
+  shadowRadius: 5,
+  borderRadius: 10
 },
 
 finishButton: {
@@ -523,11 +553,29 @@ finishButton: {
   backgroundColor:'#42d4f4',
   borderRadius:10,
   borderWidth: 1,
-  borderColor: '#42d4f4'
+  borderColor: '#42d4f4',
+},
+finishButtonView: {
+  marginLeft:270,
+  marginBottom: 15,
+  marginRight: 5,
+  padding:5,
+  backgroundColor: '#42d4f4',
+  borderRadius: 10,
+  shadowColor: '#3e4247',
+  shadowOffset: {width: 1, height: 1},
+  shadowOpacity: 2,
+  shadowRadius: 3,
+  borderRadius: 10
 },
 
 primaryButton: {
-    backgroundColor: '#34A853'
+    backgroundColor: '#34A853',
+    shadowColor: '#3e4247',
+    shadowOffset: {width: 2, height: 2},
+    shadowOpacity: 2,
+    shadowRadius: 5,
+    borderRadius: 10
 },
 footer: {
    marginTop: 100
