@@ -80,7 +80,7 @@ class ProfileView extends Component {
 
     render () {
         return (
-            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#42bff4'}}>
+            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#0093c1'}}>
                 <Text style={{alignItems: 'center', justifyContent: 'center', fontSize: 30}}>
                     Welcome To DimCare
                 </Text>
@@ -127,7 +127,7 @@ class LoginView extends Component{
     return(
     <View style={styles.logincontainer}>
         <Container>
-          <Label text="Username or Email" />
+          <Text style={{fontSize: 25, color: '#45484c'}}> Email </Text>
           <View style={styles.textInput}>
             <TextInput
               style={styles.textInputSize}
@@ -135,7 +135,7 @@ class LoginView extends Component{
             </View>
         </Container>
         <Container>
-          <Label text="Password" />
+          <Text style={{fontSize: 25, color: '#45484c'}}> Password </Text>
           <View style={styles.textInput}>
             <TextInput
             style={styles.textInputSize}
@@ -167,14 +167,17 @@ class LoginView extends Component{
 class RegisterView extends Component{
 
   changeToPatientInfo(){
-
+    this.props.navigator.replace({
+      component: PatientInfoView,
+      title: 'PatientInfoView'
+    })
   }
 
   render(){
     return (
-      <View style={{flex:1, backgroundColor:'#42bff4', justifyContent: 'center'}}>
+      <View style={{flex:1, backgroundColor:'#0093c1', justifyContent: 'center'}}>
       <Container>
-        <Label text="Name" />
+        <Text style={{fontSize: 25, color: '#45484c'}}> Name </Text>
         <View style={styles.textInput}>
           <TextInput
             style={styles.textInputSize}
@@ -183,17 +186,7 @@ class RegisterView extends Component{
       </Container>
 
       <Container>
-        <Label text="Email" />
-        <View style={styles.textInput}>
-          <TextInput
-            style={styles.textInputSize}
-            secureTextEntry={true}
-          />
-          </View>
-      </Container>
-
-      <Container>
-        <Label text="Password" />
+        <Text style={{fontSize: 25, color: '#45484c'}}> Email </Text>
         <View style={styles.textInput}>
           <TextInput
             style={styles.textInputSize}
@@ -203,7 +196,17 @@ class RegisterView extends Component{
       </Container>
 
       <Container>
-        <Label text="Phone Number" />
+        <Text style={{fontSize: 25, color: '#45484c'}}> Password </Text>
+        <View style={styles.textInput}>
+          <TextInput
+            style={styles.textInputSize}
+            secureTextEntry={true}
+          />
+          </View>
+      </Container>
+
+      <Container>
+        <Text style={{fontSize: 25, color: '#45484c'}}> Phone Number </Text>
         <View style={styles.textInput}>
           <TextInput
             style={styles.textInputSize}
@@ -227,11 +230,164 @@ class RegisterView extends Component{
   }
 }
 
+//Patient View
+class PatientInfoView extends Component{
+
+  changeToFamilyInfo(){
+    this.props.navigator.replace({
+      component: FamilyInfoView,
+      title: 'FamilyInfoView'
+    })
+  }
+
+  render(){
+    return (
+      <View style={{flex:1, backgroundColor:'#0093c1', justifyContent: 'center'}}>
+
+        <Container>
+          <Text style={{fontSize: 25, color: '#45484c'}}> Name </Text>
+          <View style={styles.textInput}>
+            <TextInput
+              style={styles.textInputSize}
+            />
+            </View>
+        </Container>
+
+        <Container>
+          <Text style={{fontSize: 25, color: '#45484c'}}> Age </Text>
+          <View style={styles.textInput}>
+            <TextInput
+              style={styles.textInputSize}
+               keyboardType = 'numeric'
+            />
+            </View>
+        </Container>
+
+        <Container>
+          <Text style={{fontSize: 25, color: '#45484c'}}> Diagnosis/Stage </Text>
+          <View style={styles.textInput}>
+            <TextInput
+              style={styles.textInputSize}
+            />
+            </View>
+        </Container>
+
+        <Container>
+          <Text style={{fontSize: 25, color: '#45484c'}}> Gender </Text>
+          <View style={styles.textInput}>
+            <TextInput
+              style={styles.textInputSize}
+            />
+            </View>
+        </Container>
+
+        <TouchableHighlight
+            label = "Next (Family Info)"
+            style = {styles.nextButton}
+
+            onPress={ () => this.changeToFamilyInfo()} >
+            <Text style={styles.nextText}>
+            Next (Family Info)
+            </Text>
+
+        </TouchableHighlight>
+
+      </View>
+    )
+  }
+}
+
+class FamilyInfoView extends Component{
+  render(){
+    return (
+      <View style={{flex:1, paddingTop:20, backgroundColor:'#0093c1',}}>
+      <View style = {{flex:1, height: 80, width: 352, padding:15, borderWidth:1, borderColor: '#008ae0', borderRadius: 10}}>
+
+      <Container>
+        <Label text="Family Member 1" />
+      </Container>
+
+      <Container>
+        <Text style={{fontSize: 25, color: '#45484c'}}> Name </Text>
+        <View style={styles.textInputFamily}>
+          <TextInput
+            style={styles.textInputSizeFamily}
+          />
+          </View>
+      </Container>
+
+      <Container>
+        <Text style={{fontSize: 25, color: '#45484c'}}> Email </Text>
+        <View style={styles.textInputFamily}>
+          <TextInput
+            style={styles.textInputSizeFamily}
+          />
+          </View>
+      </Container>
+
+      <Container>
+        <Text style={{fontSize: 25, color: '#45484c'}}> Phone </Text>
+        <View style={styles.textInputFamily}>
+          <TextInput
+            style={styles.textInputSizeFamily}
+              keyboardType = 'numeric'
+          />
+          </View>
+      </Container>
+      </View>
+
+      <View style = {{flex:1, height: 80, width: 352, marginTop:13, marginBottom: 50, padding:15, borderWidth:1, borderColor: '#008ae0', borderRadius: 10}}>
+      <Container>
+        <Label text="Family Member 2" />
+      </Container>
+
+      <Container>
+        <Text style={{fontSize: 25, color: '#45484c'}}> Name </Text>
+        <View style={styles.textInputFamily}>
+          <TextInput
+            style={styles.textInputSizeFamily}
+          />
+          </View>
+      </Container>
+
+      <Container>
+        <Text style={{fontSize: 25, color: '#45484c'}}> Email </Text>
+        <View style={styles.textInputFamily}>
+          <TextInput
+            style={styles.textInputSizeFamily}
+          />
+          </View>
+      </Container>
+
+      <Container>
+        <Text style={{fontSize: 25, color: '#45484c'}}> Phone </Text>
+        <View style={styles.textInputFamily}>
+          <TextInput
+            style={styles.textInputSizeFamily}
+              keyboardType = 'numeric'
+          />
+          </View>
+      </Container>
+      </View>
+
+      <View style={{marginLeft:280, padding:5, backgroundColor: '#42d4f4', borderRadius: 10}}>
+        <TouchableHighlight style={{flexDirection:'row'}}>
+          <Text style={{fontSize: 24, color: '#fff'}}>
+           Finish
+          </Text>
+        </TouchableHighlight>
+      </View>
+
+      </View>
+    )
+  }
+}
+
 
 const styles = StyleSheet.create({
   container:{
     flex:1,
-    backgroundColor: '#42bff4',
+    backgroundColor: '#0093c1',
      padding: 30,
      flexDirection: 'column',
     // justifyContent: 'center', //moves stuff hight wise
@@ -239,7 +395,7 @@ const styles = StyleSheet.create({
   },
   logincontainer: {
     flex:1,
-    backgroundColor: '#42bff4',
+    backgroundColor: '#0093c1',
     padding: 30,
     flexDirection: 'column',
     justifyContent: 'center', //moves stuff hight wise
@@ -258,7 +414,16 @@ const styles = StyleSheet.create({
     height: 50,
     width: 210,
 
-    backgroundColor: '#42bff4',
+    backgroundColor: '#0093c1',
+    borderBottomWidth: 1,
+    borderBottomColor: '#070c28'
+},
+
+  textInputFamily: {
+    height: 14,
+    width: 210,
+    paddingTop:5 ,
+    backgroundColor: '#0093c1',
     borderBottomWidth: 1,
     borderBottomColor: '#070c28'
 },
@@ -267,6 +432,14 @@ const styles = StyleSheet.create({
     width: 210,
     fontSize : 30
   },
+
+  textInputSizeFamily: {
+    height: 20,
+    width: 210,
+    paddingTop: 5,
+    fontSize : 14
+  },
+
   buttonWhiteText: {
     fontSize: 20,
     color: '#FFF',
@@ -282,15 +455,17 @@ signInButton: {
   marginTop:10,
   paddingTop:10,
   paddingBottom:10,
-  backgroundColor:'#0072ff',
+  paddingLeft:10,
+  paddingRight:10,
+  backgroundColor:'#092663',
   borderRadius:10,
   borderWidth: 1,
-    borderColor: '#0072ff'
+    borderColor: '#092663'
 },
 submitText: {
   color:'#fff',
      textAlign:'center',
-     fontSize: 40
+     fontSize: 30
 },
 
 nextText: {
@@ -305,10 +480,12 @@ RegisterButton : {
   marginTop:10,
   paddingTop:10,
   paddingBottom:10,
-  backgroundColor:'#42d4f4',
+  paddingLeft:10,
+  paddingRight:10,
+  backgroundColor:'#006caf',
   borderRadius:10,
   borderWidth: 1,
-    borderColor: '#42d4f4'
+    borderColor: '#006caf'
 },
 submitButon: {
 
@@ -328,6 +505,19 @@ nextButton: {
   marginRight:30,
   marginLeft:30,
   marginTop:80,
+  paddingTop:10,
+  paddingBottom:10,
+  backgroundColor:'#42d4f4',
+  borderRadius:10,
+  borderWidth: 1,
+  borderColor: '#42d4f4'
+},
+
+finishButton: {
+
+  marginRight:30,
+  marginLeft:30,
+  //  marginTop:80,
   paddingTop:10,
   paddingBottom:10,
   backgroundColor:'#42d4f4',
