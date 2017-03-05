@@ -321,6 +321,14 @@ class PatientInfoView extends Component{
 }
 
 class FamilyInfoView extends Component{
+
+  changeToDoctorInfo(){
+      this.props.navigator.replace({
+        component: DoctorInfoView,
+        title: 'DoctorInfoView'
+      })
+    }
+
   render(){
     return (
       <View style={{flex:1, paddingTop:20, backgroundColor:'#0093c1',}}>
@@ -394,12 +402,147 @@ class FamilyInfoView extends Component{
       </View>
 
       <View style={styles.finishButtonView}>
-        <TouchableHighlight style={{flexDirection:'row'}}>
+        <TouchableHighlight style={{flexDirection:'row'}} onPress={ () => this.changeToDoctorInfo()}>
           <Text style={{fontSize: 24, color: '#fff'}}>
-           Finish
+           Next (Doctor Info)
           </Text>
         </TouchableHighlight>
       </View>
+
+      </View>
+    )
+  }
+}
+
+class DoctorInfoView extends Component{
+
+changeToGoalsInfo(){
+    this.props.navigator.replace({
+      component: GoalsInfoView,
+      title: 'Goals InfoView'
+    })
+  }
+  render(){
+    return (
+      <View style={{flex:1, paddingTop:20, backgroundColor:'#0093c1',}}>
+
+      <Container>
+        <Text style={{fontSize: 25, color: '#45484c'}}> Name </Text>
+        <View style={styles.textInput}>
+          <TextInput
+            style={styles.textInputSize}
+          />
+          </View>
+      </Container>
+
+      <Container>
+        <Text style={{fontSize: 25, color: '#45484c'}}> Email </Text>
+        <View style={styles.textInput}>
+          <TextInput
+            style={styles.textInputSize}
+          />
+          </View>
+      </Container>
+
+      <Container>
+        <Text style={{fontSize: 25, color: '#45484c'}}> Cell-Phone </Text>
+        <View style={styles.textInput}>
+          <TextInput
+            style={styles.textInputSize}
+            keyboardType = 'numeric'
+          />
+          </View>
+      </Container>
+
+      <Container>
+        <Text style={{fontSize: 25, color: '#45484c'}}> Office-Phone </Text>
+        <View style={styles.textInput}>
+          <TextInput
+            style={styles.textInputSize}
+            keyboardType = 'numeric'
+          />
+          </View>
+      </Container>
+
+
+      <TouchableHighlight
+          label = "Next (Patient Info)"
+          style = {styles.nextButton}
+
+          onPress={ () => this.changeToGoalsInfo()} >
+          <Text style={styles.nextText}>
+          Next (Patient Info)
+          </Text>
+
+      </TouchableHighlight>
+
+      </View>
+    )
+  }
+}
+
+
+class GoalsInfoView extends Component{
+
+changeToDayViewInfo(){
+    this.props.navigator.replace({
+      component: DayInfoView,
+      title: 'Day InfoView'
+    })
+  }
+  render(){
+    return (
+      <View style={{flex:1, paddingTop:10, backgroundColor:'#0093c1',}}>
+      <View style = {{flex:1, height: 80, width: 352, padding:15, borderWidth:1, borderColor: '#008ae0', borderRadius: 10}}>
+
+      <Container>
+        <Label text="Please rate what do you need help with in priority order from 1(highest priority) to 3(lowest priority)" />
+      </Container>
+
+      <Container>
+        <Text style={{fontSize: 23, color: '#45484c'}}> Getting a GoodNight Sleep </Text>
+        <View style={styles.textInput}>
+          <TextInput
+            style={styles.textInputSize}
+            keyboardType = 'numeric'
+          />
+          </View>
+      </Container>
+
+      <Container>
+        <Text style={{fontSize: 25, color: '#45484c'}}> Controlling Incontinence </Text>
+        <View style={styles.textInput}>
+          <TextInput
+            style={styles.textInputSize}
+            keyboardType = 'numeric'
+          />
+          </View>
+      </Container>
+
+      <Container>
+        <Text style={{fontSize: 25, color: '#45484c'}}> Getting adequate nutrition </Text>
+        <View style={styles.textInput}>
+          <TextInput
+            style={styles.textInputSize}
+              keyboardType = 'numeric'
+          />
+          </View>
+      </Container>
+
+      </View>
+
+
+        <TouchableHighlight
+            label = "Next (Day View Info)"
+            style = {styles.dayViewButton}
+
+            onPress={ () => this.changeToDayViewInfo()} >
+            <Text style={styles.nextText}>
+            Next (Day View Info)
+            </Text>
+
+        </TouchableHighlight>
+
 
       </View>
     )
@@ -489,6 +632,7 @@ signInButton: {
   shadowOpacity: 2,
   shadowRadius: 5
 },
+
 submitText: {
   color:'#fff',
      textAlign:'center',
@@ -566,6 +710,26 @@ nextButton: {
   borderRadius: 10
 },
 
+dayViewButton: {
+  marginRight:30,
+  marginLeft:30,
+  // marginTop:10,
+  marginBottom: 15,
+  paddingTop:10,
+  paddingBottom:10,
+  paddingLeft:10,
+  paddingRight:10,
+  backgroundColor:'#42d4f4',
+  borderRadius:10,
+  borderWidth: 1,
+  borderColor: '#42d4f4',
+  shadowColor: '#3e4247',
+  shadowOffset: {width: 2, height: 2},
+  shadowOpacity: 2,
+  shadowRadius: 5
+
+},
+
 finishButton: {
 
   marginRight:30,
@@ -579,10 +743,11 @@ finishButton: {
   borderColor: '#42d4f4',
 },
 finishButtonView: {
-  marginLeft:227,
-  marginBottom: 15,
+
+  marginLeft:90,
+  marginBottom: 3,
   marginRight: 5,
-  padding:5,
+  padding:3,
   backgroundColor: '#42d4f4',
   borderRadius: 10,
   shadowColor: '#3e4247',
