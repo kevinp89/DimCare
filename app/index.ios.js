@@ -10,6 +10,9 @@ import {
   NavigatorIOS,
   TouchableHighlight
 } from 'react-native';
+
+
+
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Container from './src/components/Container';
 import Button from './src/components/Button';
@@ -114,6 +117,17 @@ class ProfileView extends Component {
 //The login View.
 class LoginView extends Component{
 
+  constructor(props) {
+		super(props);
+
+		this.initialState = {
+			isLoading: false,
+			error: null,
+			email: '',
+			password: '',
+		};
+		this.state = this.initialState;
+	}
 
   changetheView() {
       this.props.navigator.replace({
@@ -122,6 +136,9 @@ class LoginView extends Component{
       })
     };
 
+  onPressLogin() {
+		alert('email: ' + this.state.email + ' password: ' + this.state.password)
+	}
 
   render(){
     return(
@@ -130,7 +147,10 @@ class LoginView extends Component{
           <Text style={{fontSize: 25, color: '#45484c'}}> Email </Text>
           <View style={styles.textInput}>
             <TextInput
+
+              onChangeText={(email) => this.setState({email})}
               style={styles.textInputSize}
+              value={this.state.email}
             />
             </View>
         </Container>
@@ -138,8 +158,11 @@ class LoginView extends Component{
           <Text style={{fontSize: 25, color: '#45484c'}}> Password </Text>
           <View style={styles.textInput}>
             <TextInput
-            style={styles.textInputSize}
-                secureTextEntry={true}
+              style={styles.textInputSize}
+
+              secureTextEntry={true}
+              onChangeText={(password) => this.setState({password})}
+              value={this.state.password}
             />
             </View>
         </Container>
@@ -147,7 +170,7 @@ class LoginView extends Component{
             <Button
                 label="Sign In"
                 styles={{button: styles.primaryButton, label: styles.buttonWhiteText}}
-                //onPress={this.press.bind(this)}
+                onPress={() => this.onPressLogin()}
                  />
         </Container>
         <Container>
@@ -430,7 +453,7 @@ const styles = StyleSheet.create({
   textInputSize: {
     height: 50,
     width: 210,
-    fontSize : 30
+    fontSize : 18
   },
 
   textInputSizeFamily: {
@@ -556,7 +579,7 @@ finishButton: {
   borderColor: '#42d4f4',
 },
 finishButtonView: {
-  marginLeft:270,
+  marginLeft:227,
   marginBottom: 15,
   marginRight: 5,
   padding:5,
